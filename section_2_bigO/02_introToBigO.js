@@ -39,3 +39,20 @@ function printAllPairs(n){
     }
   }
 }
+
+
+// Two algorithms that are similar, but one is O(n) and one is O(1)
+
+//O(n) --> as n increases, time complexity increases, because if n > 5, the loop executes n times
+function logAtLeast5(n){
+  for (let i=0; i<=Math.max(5, n); i++){
+    console.log(i);
+  }
+}
+
+//O(1) --> constant runtime, the loop always excutes 5 times regardless of n
+function logAtMost5(n){
+  for (let i=0; i <= Math.min(5, n); i++){
+    console.log(i);;
+  }
+}
