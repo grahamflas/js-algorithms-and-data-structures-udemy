@@ -56,3 +56,53 @@ function logAtMost5(n){
     console.log(i);;
   }
 }
+
+
+// ____________________ SIMPLIFYING BIG O EXPRESSIONS _______________
+
+// O(n)
+function logUpTo(n){
+  for (let i=1; i<=n; i++){
+    console.log(i);
+  }
+}
+
+//O(1)
+function logAtMost10(n) {
+  for (var i = 1; i <= Math.min(n, 10); i++) {
+      console.log(i);
+  }
+}
+
+//O(n)
+function logAtLeast10(n) {
+  for (var i = 1; i <= Math.max(n, 10); i++) {
+      console.log(i);
+  }
+}
+
+//O(n)
+function onlyElementsAtEvenIndex(array) {
+  var newArray = Array(Math.ceil(array.length / 2)); //O(1)
+  for(i=0; i<=array.length; i++){   //O(n)
+    if (i % 2 === 0){                     // }-> O(n) * O(1) = O(n)
+      newArray[i/2] = array[i];     //O(1)
+    }
+  }
+  return newArray
+}
+
+//O(n^2)
+function subtotals(array){
+  let subtotalArray = Array(array.length);
+
+  for (let i=0; i<array.length; i++){//O(n)
+    let subtotal = 0                       //}-> O(n^2)
+    for (let j=0; j<=i; j++){//........O(n)
+      subtotal += array[j]
+    }
+    subtotalArray[i]=subtotal
+  }
+
+  return subtotalArray
+}
