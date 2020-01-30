@@ -61,12 +61,41 @@ function charCountStep5(str){
 
 //STEP 6: REFACTOR 
   //replace for loop with for...of
-function charCountStep6(str){
+function charCountV1(str){
   let histo = {}
   for (char of str){
     char = char.toLowerCase();
-    if(/[a-z0-9]/.test(char)){
+    if(/[a-z0-9]/.test(char)){          
       histo[char] = ++histo[char] || 1  //short-circuit assignment
+    }
+  }
+  return histo
+}
+
+//ANOTHER SOLUTION- note that there are known performance issues with regular expressions, depending on the browser
+  //An alternative to using RegEx to check if a characater is alphanumeric is to use charCodeAt(), which returns the UTF-16 code for the character at a specified index
+  //test to see what the UTF codes are for the characters we want to allow
+
+function printCharacterCodes(str){
+  let codeObj = {}
+  for(char of str){
+    codeObj[char] = char.charCodeAt(0)
+  }
+  return codeObj
+}
+
+printCharacterCodes("0123456789") //codes === 48-57
+printCharacterCodes("ABCDEFGHIJKLMNOPQRSTUVWXYZ") //65-90
+printCharacterCodes("abcdefghijklmnopqrstuvwxyz") //97-122
+
+//Implemention that uses charCodeAt() to check whether the current character is alphanumeric
+function charCountV2(str){
+  let histo = {}
+  for(char of str){
+    char = char.toLowerCase()
+    charCode = char.charCodeAt(0)
+    if(charCode >= 48 && charCode <= 57 || charCode >=97 && charCode <= 122){
+      histo[char] = ++histo[char] || 1
     }
   }
   return histo
