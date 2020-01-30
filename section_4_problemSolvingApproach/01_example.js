@@ -100,3 +100,25 @@ function charCountV2(str){
   }
   return histo
 }
+
+//Do the same thing, but using a helper function
+function isAlphaNumeric(char){
+  let code = char.charCodeAt(0)
+  if (code >= 48 && code <= 57 ||   // characters 0-9
+   code >= 65 && code <= 90 ||      // characters A-Z
+   code >= 97 && code <= 122 ) {    // characters a-z
+    return true;
+  } 
+  return false;
+}
+
+function charCountV3(str){
+  let histo = {}
+  for (char of str){
+    char = char.toLowerCase()
+    if (isAlphaNumeric(char)){
+      histo[char] = ++histo[char] || 1
+    }
+  }
+  return histo
+}
