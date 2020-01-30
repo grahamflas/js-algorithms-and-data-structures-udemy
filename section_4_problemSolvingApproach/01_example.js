@@ -115,8 +115,8 @@ function isAlphaNumeric(char){
 function charCountV3(str){
   let histo = {}
   for (char of str){
-    char = char.toLowerCase()
     if (isAlphaNumeric(char)){
+      char = char.toLowerCase()
       histo[char] = ++histo[char] || 1
     }
   }
