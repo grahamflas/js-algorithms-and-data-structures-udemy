@@ -44,7 +44,7 @@ function charCountStep4(str){
 }
 
 //STEP 5: SIMPLIFY AND SOLVE
-function charCount(str){
+function charCountStep5(str){
   let histo = {}
   for (let i=0; i<str.length; i++){
     let current = str[i].toLowerCase();
@@ -53,6 +53,23 @@ function charCount(str){
         histo[current]++;
       } else {
         histo[current] = 1
+      }
+    }
+  }
+  return histo
+}
+
+//STEP 6: REFACTOR 
+  //replace for loop with for...of
+function charCountStep6(str){
+  let histo = {}
+  for (char of str){
+    char = char.toLowerCase();
+    if(/[a-z0-9]/.test(char)){
+      if (histo[char]){
+        histo[char]++;
+      } else {
+        histo[char] = 1
       }
     }
   }
