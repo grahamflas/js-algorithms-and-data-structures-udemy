@@ -66,11 +66,7 @@ function charCountStep6(str){
   for (char of str){
     char = char.toLowerCase();
     if(/[a-z0-9]/.test(char)){
-      if (histo[char]){
-        histo[char]++;
-      } else {
-        histo[char] = 1
-      }
+      histo[char] = ++histo[char] || 1  //short-circuit assignment
     }
   }
   return histo
