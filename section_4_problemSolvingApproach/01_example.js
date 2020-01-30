@@ -18,7 +18,7 @@ testFunc("")
 
 //STEP 4: Pseudo-code
 
-function charCount(str){
+function charCountStep4(str){
   //Make empty object to return at the end.
   let histo = {}
 
@@ -32,7 +32,7 @@ function charCount(str){
 
     if (/[a-z0-9]/.test(current)) {
       if (histo[current]) {
-        histo[current] += 1;
+        histo[current]++;
       } else {
         histo[current] = 1
       }
@@ -43,3 +43,18 @@ function charCount(str){
   return histo
 }
 
+//STEP 5: SIMPLIFY AND SOLVE
+function charCount(str){
+  let histo = {}
+  for (let i=0; i<str.length; i++){
+    let current = str[i].toLowerCase();
+    if(/[a-z0-9]/.test(current)){
+      if (histo[current]){
+        histo[current]++;
+      } else {
+        histo[current] = 1
+      }
+    }
+  }
+  return histo
+}
