@@ -40,3 +40,31 @@ function sameV2(array1, array2){
 
   return true
 }
+
+//REFACTORED SOLUTION
+  //time complexity is O(n) --> we have three loops, but none of them are nested, so this simplified to O(n)
+function sameV3(array1, array2){
+  if (array1.length !== array2.length) return false;
+
+  let frequencyCounter1 = {};
+  let frequencyCounter2 = {};
+
+  for(let val of array1){
+    //if val is already a key, increment existing count by 1; otherwise, add it to object, set value to 0, then add 1. 
+    frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1; 
+  }
+
+  for(let val of array2){
+    frequencyCounter2[val] = (frequencyCounter2[val] || 0) +1;
+  }
+
+  for(let key in frequencyCounter1){
+    //check to make sure the square of element in array1 is present as a key in the second object
+    if(!(key**2) in frequencyCounter2) return false; 
+
+    //make sure the frequencies are the same
+    if( frequencyCounter2[key**2] !==  frequencyCounter1[key]) return false; 
+  }
+
+  return true;
+}
