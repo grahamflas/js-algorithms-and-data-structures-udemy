@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // _x_Confirm that each key in object1 is present in object2
       //x__Confirm that for each key in object 1, its value is the same in object2
 
-function isAnagram(str1, str2){
+function isAnagramV1(str1, str2){
   if (str1.length !== str2.length) return false;
 
   let frequency1 = {};
@@ -44,3 +44,23 @@ function isAnagram(str1, str2){
 
   return true;
 }
+
+//SECOND IMPLEMENTATION
+function isAnagramV2(str1, str2){
+  if (str1.length !== str2.length) return false;
+
+  const histo = {};
+
+  for (let char of str1){
+    histo[char] ? histo[char] += 1 : histo[char] = 1;
+  }
+
+  for (let char of str2){
+    if (!histo[char]) return false;
+    histo[char] -= 1;
+  }
+
+  return true;
+}
+
+
