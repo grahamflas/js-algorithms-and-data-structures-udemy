@@ -38,7 +38,7 @@ function isAnagram(str1, str2){
   }
 
   for (let key in frequency1){
-    if (key in frequency2 === false) return false;
+    if (!key in frequency2) return false;
     if (frequency1[key] !== frequency2[key]) return false;
   }
 
