@@ -50,6 +50,24 @@ function countUniqueValuesV1(array){
   return count
 }
 
+// SECOND IMPLEMENTATION
+  // declare i and return i+1 after the loop
+
+function countUniqueValuesV2(array){
+  if (array.length === 0) return 0;
+
+  let i = 0;
+
+  for(let j=1; j<array.length; j++){
+    if (array[i] != array[j]) {
+      i++;
+      array[i] = array[j];
+    }
+  }
+  
+  return i + 1;
+}
+
 
 
  
