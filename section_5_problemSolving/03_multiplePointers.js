@@ -24,5 +24,23 @@ function sumZeroV1(array){
   }
 }
 
+// SECOND IMPLEMENTATION
+
+function sumZeroV2(array){
+  let left = 0
+  let right = array.length -1
+
+  while (left < right){
+    let sum = array[left] + array[right];
+    if (sum === 0){
+      return [ array[left], array[right] ]
+    } else if (sum > 0){  //if sum is greater than zero, we want to keep the left position and move the right condition closer to zero.  Only do this if sum > 0, because if not, further moves to the right will only get your furhter from zero
+      right--;
+    } else {  //See above. If sum is less than zero
+      left++;
+    }
+  }
+}
 
 
+ 
