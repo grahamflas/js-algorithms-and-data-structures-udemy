@@ -63,3 +63,26 @@ function maxSubarraySumV2(array, n){
 
   return max;
 }
+
+// THIRD IMPLEMENTATION
+  //much better time complexity -- O(n)
+
+function maxSubarraySumV3(array, n){
+  let maxSum = 0;
+  let tempSum = 0;
+
+  if (array.length < n) return null;
+  
+  for (let i = 0; i < n; i++){
+    maxSum += array[i]
+  }
+  
+  tempSum = maxSum;
+  
+  for (let i = n; i < array.length; i++){
+    tempSum = tempSum - array[i-n] + array[i]; //sliding window
+    maxSum = Math.max(maxSum, tempSum)
+  }
+  
+  return maxSum;
+}
