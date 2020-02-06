@@ -64,10 +64,6 @@ function countUniqueValuesV2(array){
       array[i] = array[j];
     }
   }
-  
+
   return i + 1;
 }
-
-
-
- 
