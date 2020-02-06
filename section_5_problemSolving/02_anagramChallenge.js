@@ -56,7 +56,7 @@ function isAnagramV2(str1, str2){
   }
 
   for (let char of str2){
-    if (!histo[char]) return false;
+    if (!histo[char]) return false; //if the value for given key `char` === 0, then !histo[char] evaluates to `true`, which leads us to return `false`
     histo[char] -= 1;
   }
 
