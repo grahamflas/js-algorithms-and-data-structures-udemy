@@ -43,3 +43,23 @@ function maxSubarraySumV1(array, n){
 
   return result
 }
+
+// SECOND IMPLEMENTATION 
+  //cleaner, but this is using a nested loop O(n^2)
+function maxSubarraySumV2(array, n){
+  if (array.length < n) return null;
+
+  let max = -Infinity; //in case we're dealing with all negative numbers
+
+  for(let i=0; i < array.length-n+1; i++){
+    temp = 0;
+
+    for (let j = 0; j < n; j++){
+      temp += array[i + j];
+    }
+
+    max = temp > max ? temp : max;
+  }
+
+  return max;
+}
