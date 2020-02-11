@@ -20,3 +20,26 @@ function searchV1(array, val){
   }
   return -1;
 }
+
+//SECOND IMPLEMENTATION
+  //Binary Search - time complexit is Log(n)
+
+function searchV2(array, val){
+  let min = 0;
+  let max = array.length - 1;
+
+  while (min <= max){
+    let middle = Math.floor( (min + max)/2 );
+
+    if (array[middle < val]){
+      min = middle + 1; 
+    }
+    else if (array[middle] > val){
+      max = middle -1;
+    }
+    else {
+      return middle;
+    }
+  }
+  return -1;
+}
