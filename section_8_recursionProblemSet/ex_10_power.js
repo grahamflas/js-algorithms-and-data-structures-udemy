@@ -12,7 +12,26 @@ Do not worry about about negative bases and exponents
 // power(2,0)   //1
 // power(0,2)   //0
 
-function power(base, exp){
+// REFACTOR
+function powerV2(base, exp){
+  if (exp === 0) return 1;
+  return base * powerV2(base, exp-1)
+}
+
+/*
+What's happening
+
+powerV2(2,4)
+
+  2 * powerV2(2, 3)             //2 * 8 => 16
+      2 * powerV2(2, 2)         //2 * 4 => 8
+          2 * powerV2(2, 1)     //2 * 2 => 4
+              2 * powerV2(2, 0) //2 * 1 => 2
+                  1             //1
+*/
+
+//FIRST PASS
+function powerV1(base, exp){
   let counter = exp
   let result = 1
 
