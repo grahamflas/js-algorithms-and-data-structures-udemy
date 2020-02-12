@@ -16,6 +16,7 @@ ___ if the value is never found, return -1
 */
 
 //FIRST PASS
+  // O(n) time complexity
 
 function myLinearSearch(array, val){
   for(let i = 0; i < array.length; i++){
