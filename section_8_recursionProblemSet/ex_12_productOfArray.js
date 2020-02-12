@@ -8,6 +8,5 @@ Write a function called productOfArray() which takes in an array of numbers and 
 
 function productOfArray(array){
   if(array.length === 0 ) return 1;
-  let result = array[0];
-  return result * productOfArray(array.slice(1));
+  return array[0] * productOfArray(array.slice(1));
 }
