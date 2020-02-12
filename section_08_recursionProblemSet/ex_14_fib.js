@@ -53,3 +53,37 @@ function fibV1(n){
   addFib(counter)
   return fibArray[n-1];
 }
+
+/*
+===============
+Write a function that returns an array of Fibonacci numbers that is n elements long
+===============
+*/
+
+//Iterative solution is much faster here
+function printFibSequenceFaster(length){
+  let fibSeq = [1, 1]
+  
+  if (length < 3){
+    return fibSeq.slice(0,length);
+  } 
+
+  for (let i = 2; i < length; i++){
+    fibSeq.push( fibSeq[i - 1] + fibSeq[i - 2])
+  }
+
+  return fibSeq;
+}
+
+//this function increases in time complexity extremely quickly, because of the number of recursive calls as i grows
+function printFibSequenceSlow(length){
+  if (length < 1) return;
+
+  let fibSeq = []
+
+  for (let i = 1; i <= length; i++){
+    fibSeq.push( fibV1(i) )
+  }
+
+  return fibSeq;
+}
