@@ -19,18 +19,14 @@ function fibV2(n){
 /*
 What's happening
 
-fib(5)
-  fib(4)
-    fib(3)
-      fib(2)  => 1
-      fib(1)  => 1
-    fib(2)    => 1
-  fib(3)
-    fib(2)    => 1
-    fib(1)    => 1
-              ====
-                 5
-
+                      fib(5)
+                  /           \
+            fib(4)            fib(3)
+            /      \           /     \ 
+      fib(3)      fib(2)   fib(2)  fib(1)
+      /     \      => 1    => 1     => 1
+  fib(2)  fib(1)
+    => 1    => 1 
 */
 
 //FIRST PASS
