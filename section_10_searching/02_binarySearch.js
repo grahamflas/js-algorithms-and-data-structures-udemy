@@ -34,14 +34,14 @@ ___ If element is not contained, return -1
 =========================
 */
 
+//FIRST IMPLEMENTATION
+
 function myBinarySearch(array, val){
   let left = 0
   let right = array.length -1
 
   while (left <= right){
-    // console.log(array.slice(left,right+1))
-    let middle = Math.floor( (right-left)/2 ) + left
-    // console.log("middle: ", array[middle])
+    let middle = Math.floor( (right+left)/2 )
     if (array[middle] === val) return middle;
     if (array[middle] < val){
       left = middle + 1
