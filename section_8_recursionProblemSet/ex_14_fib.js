@@ -10,13 +10,38 @@ Recall that the Fibonacci sequence is the sequence of whole numbers 1, 1, 2, 3, 
 // fib(5) // 5
 // fib(6) // 8
 
+//REFACTOR
+function fibV2(n){
+  if (n <= 2) return 1;
+  return fibV2(n-1) + fibV2(n-2)
+}
+
+/*
+What's happening
+
+fib(5)
+  fib(4)
+    fib(3)
+      fib(2)  => 1
+      fib(1)  => 1
+    fib(2)    => 1
+  fib(3)
+    fib(2)    => 1
+    fib(1)    => 1
+              ====
+                 5
+
+*/
+
+//FIRST PASS
+
 //Delcare a starter fibArray that is 2 elements long and a counter set to 2
 //Write helper function addFib(input) that sums the last two elements of the current fibArray and pushes the sum onto fibArray
   //increment count
   //exit helper function with count === n
 //return fibArray[n-1]
 
-function fib(n){
+function fibV1(n){
   if (n <= 2) return 1;
 
   let fibArray = [1,1];
