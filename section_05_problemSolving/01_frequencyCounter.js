@@ -63,7 +63,7 @@ function sameV3(array1, array2){
     if(!(key**2) in frequencyCounter2) return false; 
 
     //make sure the frequencies are the same
-    if( frequencyCounter2[key**2] !==  frequencyCounter1[key]) return false; 
+    if( frequencyCounter1[key] !== frequencyCounter2[key**2] ) return false; 
   }
 
   return true;
