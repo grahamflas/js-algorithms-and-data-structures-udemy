@@ -42,6 +42,7 @@ function myBinarySearch(array, val){
 
   while (left <= right){
     let middle = Math.floor( (right+left)/2 )
+    console.log("array length: ", array.length, "middle index:", middle, "middle value: ", array[middle], "left portion: ", array.slice(left, middle), "right portion: ", array.slice(middle +1))
     if (array[middle] === val) return middle;
     if (array[middle] < val){
       left = middle + 1
