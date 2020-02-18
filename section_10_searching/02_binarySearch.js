@@ -81,3 +81,22 @@ function myBinarySearchAgain(array, val){
 
   return `${val} is not contained in this array`
 }
+
+//Slightly different implementation in which we're checking the value of middle, not whether left <= right
+
+function anotherBinarySearch(array, val){
+  let left = 0;
+  let right = array.length
+  let middle = Math.floor((left + right)/2);
+
+  while (array[middle] !== val && left <= right){
+    if (array[middle] < val){
+      left = middle + 1; 
+    } else {
+      right = middle -1;
+    }
+    middle = Math.floor((left + right)/2);
+  }
+
+  return array[middle] === val ? middle : -1;
+}
