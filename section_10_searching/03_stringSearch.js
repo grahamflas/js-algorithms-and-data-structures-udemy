@@ -18,12 +18,12 @@ __ return count
 
 //First Pass
 function myNaiveStringSearch(string, pat){
-  let match = 0
+  let match = 0;
   for (i=0; i<string.length; i++){
     for (j=0; j<pat.length; j++){
-      if (string[i+j] !== pat[j]) break
+      if (string[i+j] !== pat[j]) break;
       if (j === pat.length-1){
-        match += 1
+        match += 1;
       }
     }
   }
