@@ -52,3 +52,32 @@ function myBinarySearch(array, val){
   }
   return -1;
 }
+
+
+/*
+//set a left pointer === 0, right pointer === array.length
+//loop while left <= right
+  // find the middle of the portion of the array we're focused on => average of left and right
+  // if middle === val, return val
+  // if middle < val (i.e., the value we're looking for is to the RIGHT of the middle), left = middle + 1
+  // if middle > val (i.e., the value we're looking for is to the LEFT of the middle), right = middle -1
+// if we break out of the loop without returning anything, the value is not in the arry => return "Value not found"
+*/
+
+function myBinarySearchAgain(array, val){
+  let left = 0;
+  let right = array.length;
+
+  while (left <= right){
+    let middle = Math.floor( (left + right)/ 2 );
+
+    if (array[middle] === val) return `${val} is located at index ${middle}`
+    if (array[middle] < val){
+      left = middle + 1;
+    } else {
+      right = middle -1;
+    }
+  }
+
+  return `${val} is not contained in this array`
+}
