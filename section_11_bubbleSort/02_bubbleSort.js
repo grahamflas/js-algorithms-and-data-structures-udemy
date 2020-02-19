@@ -39,7 +39,7 @@ __ loop over array while i < array.length - 1
 
 function myBubbleSort1(array){
   let swapped = false;
-  
+
   for (i=0; i<array.length-1; i++){
     if (array[i] > array[i+1]){
       swapV2(array, i, i+1);
@@ -49,6 +49,47 @@ function myBubbleSort1(array){
 
   if (swapped){
     myBubbleSort1(array)
+  }
+  return array
+}
+
+/*
+SECOND IMPLEMENTATION (NAIVE)
+=========================
+BUBBLE SORT PSEUDO CODE
+___ start looping from the end of the array using i
+___ start inner loop from the beginning of the array until i-1
+___ if array[j] > array[j+1], swap those two values
+___ return sorted array
+=========================
+*/
+//  0   1   2   3
+// [5,  2,  8,  1]
+// [2,  5,  8,  1]
+// [2,  5,  1,  8]
+// [2,  1,  5,  8]
+// [1,  2,  5,  8]
+
+/*
+i=4, j=0
+i=4, j=1
+i=4, j=2
+i=4, j=3 // stop
+i=3, j=0
+i=3, j=1
+i=3, j=2 /// stop
+i=2, j=0
+i=2, j=1 // stop
+i=1, j=0
+*/
+
+function myBubbleSort2(array){
+  for(let i=array.length; i > 0; i--){
+    for (let j=0; j < i-1; j++){
+      if (array[j] > array[j+1]){
+        swapV2(array, j, j+1)
+      }
+    }
   }
   return array
 }
