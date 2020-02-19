@@ -93,3 +93,19 @@ function myBubbleSort2(array){
   }
   return array
 }
+
+//OPTIMIZED SOLUTION***
+function myBubbleSort3(array){
+  let noSwaps;
+  for(i=array.length; i>0; i--){
+    noSwaps = true;
+    for(j=0; j<i-1; j++){
+      if (array[j] > array[j+1]){
+        swapV2(array, j, j+1)
+        noSwaps = false;
+      }
+    }
+    if (noSwaps) break;
+  }
+  return array;
+}
