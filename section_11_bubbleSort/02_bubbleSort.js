@@ -22,5 +22,33 @@ function swapV1(array, index1, index2){
 //SECOND IMPLEMENTATION of Swap function
 function swapV2(array, index1, index2){
   [array[index1], array[index2]] = [array[index2], array[index1]] //This is using destructuring to swap.
-  console.log(array)
+  // console.log(array)
+}
+
+
+/*
+FIRST IMPLEMENTATION
+=========================
+BUBBLE SORT PSEUDO CODE
+__ loop over array while i < array.length - 1
+  __ compare array[i] and array[i + 1]
+    __ if array[i] > array[i+1], call swap
+  __ if swap was made, make a recursive function call to bubbleSort, else return the array
+=========================
+*/
+
+function myBubbleSort1(array){
+  let swapped = false;
+  
+  for (i=0; i<array.length-1; i++){
+    if (array[i] > array[i+1]){
+      swapV2(array, i, i+1);
+      swapped = true;
+    }
+  }
+
+  if (swapped){
+    myBubbleSort1(array)
+  }
+  return array
 }
