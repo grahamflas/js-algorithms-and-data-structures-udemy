@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   ul.append(li)
 });
 
-let a1 = [12, 40, 67, 90, 95];
+let a1 = [12, 40, 67];
 let a2 = [1, 21, 32, 70, 82];
 let a3 = [1, 27, 78, 83, 96];
-let a4 = [1, 66, 68, 77, 90];
+let a4 = [1, 66, 68, 77];
 let a5 = [12, 58, 64, 77, 84];
-let a6 = [30, 82, 84, 93, 95];
+let a6 = [30, 82, 84, 93];
 let a7 = [9, 18, 27, 48, 78];
-let a8 = [6, 38, 50, 88, 95];
+let a8 = [6, 38];
 
 /*
 =========================
@@ -62,10 +62,10 @@ function merge(array1, array2){
   while (i < array1.length && j < array2.length){
     if (array1[i] < array2[j]){
       result.push(array1[i]);
-      i++
-    } else {
+      i++;
+    } else { //catches both cases of 1) elements being equal and 2) array2[j] being greater
       result.push(array2[j])
-      j++
+      j++;
     }
   }
 
