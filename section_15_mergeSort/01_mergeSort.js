@@ -81,3 +81,28 @@ function merge(array1, array2){
 
   return result;
 }
+
+/*
+===================================
+STEP TWO___ write a function that merges two arrays
+
+___ Break an array into halves until you have arrays that are empty or only have one element in them
+
+___ Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
+
+___ Once the arrays have been merged together, return the merged (sorted) array
+
+===================================
+
+*/
+
+function myMergeSort(array){
+  //start with base case
+  if (array.length <= 1) return array
+
+  let mid = Math.floor(array.length/2)
+  let left = myMergeSort(array.slice(0,mid))
+  let right = myMergeSort(array.slice(mid))
+  
+  return merge(left, right)
+}
