@@ -84,3 +84,27 @@ function pivot(array, startIndex=0, endIndex=array.length-1){
   swap(array, startIndex, swapIndex)
   return swapIndex
 }
+
+/*
+=========================
+QUICKSORT PSEUDOCODE
+=========================
+___ Call the pivot helper on the array -> returns the index of where the pivot should be
+  ___ Recursively call pivot helper on the sub arrays to the left and right of the pivot index
+___ Base case occurs when you consider a subarray with less than 2 elements
+*/
+
+function quickSort(array, left=0, right=array.length-1){
+  if (left < right){
+    let pivotIndex = pivot(array, left, right) // here, startIndex and endIndex default to 0 array.length-1
+  
+    //left
+    quickSort(array, left, pivotIndex-1)
+    //right
+    quickSort(array, pivotIndex+1, right);
+
+  }
+  return array
+}
+
+quickSort(array1)
