@@ -46,7 +46,17 @@ ___ If there isn't a head, set the head and the tail equal to that new node
 ___ Otherwise set the next property on the tail to be the new node and set the tail property on the list to be the newly created node
 ___ increment the length by one
 
+====================
+PSEUDO CODE for .pop()
+====================
+___ if there are no nodes in the list, return undefined
+___ Loop through the entire list until you reach the tail
+___ Set the `next` prop of the penultimate node to null
+___ Set tail to penult node
+___ Decrement length 
+___ return removed node
 */
+
 class SinglyLinkedList {
   constructor(){
     this.head = null;
@@ -67,6 +77,22 @@ class SinglyLinkedList {
 
     this.length++;
     return newNode;
+  }
+
+  pop(){
+    if (!this.length) return undefined;
+    let current = this.head;
+    let newTail = current;
+
+    while(current.next){
+      newTail = current;
+      current = current.next;
+    }
+
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
+    return current
   }
 
 }
