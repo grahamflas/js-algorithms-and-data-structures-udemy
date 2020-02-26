@@ -79,26 +79,28 @@ class SinglyLinkedList {
     return newNode;
   }
 
-  pop(){
-    if (!this.length) return undefined;
+ pop(){
+  if (!this.length) return undefined; 
 
-    let current = this.head;
-    let newTail = current;
+  let current = this.head;
+  let newTail = current;
 
-    while(current.next){  //Loop while current has a next property that's !== null; this will be your penultimate node
-      newTail = current;
-      current = current.next;
-    }
-
-    this.tail = newTail;
-    this.tail.next = null;
-    this.length--;
-    if(this.length === 0){
-      this.head = null;
-      this.tail = null;
-    }
-    return current
+  while (current.next){
+    newTail = current;
+    current = current.next;
   }
+
+  this.tail = newTail;
+  this.tail.next = null;
+  this.length--;
+
+  if (this.length===0){
+    this.head = null;
+    this.tail = null;
+  }
+
+  return current;
+ }
 } 
 
 var nodes = "abcdefg"
