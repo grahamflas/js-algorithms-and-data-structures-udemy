@@ -62,6 +62,15 @@ ___ Set the `next` prop of the penultimate node to null
 ___ Set tail to penult node
 ___ Decrement length 
 ___ return removed node
+
+====================
+PSEUDO CODE for .shift()
+====================
+___ if no nodes, return undefined
+___ Store the current head property in a variable
+___ Set the head to be the current head's `next` property
+___ Decrement length
+___ return the value removed
 */
 
 class SinglyLinkedList {
@@ -108,17 +117,23 @@ class SinglyLinkedList {
 
   return current;
  }
+
+ shift(){
+  if (!this.length) return undefined;
+
+  let oldHead = this.head;
+  let newHead = oldHead.next;
+
+  this.head = newHead;
+  this.length--;
+
+  return oldHead;
+ }
 } 
 
 //List to play with
 let testList = new SinglyLinkedList;
 
 
-// let firstNode = new Node("Hi")
-// firstNode.next = new Node("there")
-// firstNode.next.next = new Node(",")
-// firstNode.next.next.next = new Node("how")
-// firstNode.next.next.next.next = new Node("are")
-// firstNode.next.next.next.next.next = new Node("you")
-// firstNode.next.next.next.next.next.next = new Node("?")
+
 
