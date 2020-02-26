@@ -82,6 +82,14 @@ ___ Otherwise, store current head in a variable `oldHead`
 ___ set head to newNode and head.next to `oldHead`
 ___ increment length
 ___ return newNode
+
+====================
+PSEUDO CODE for .get()
+====================
+___ function that accepts an index
+___ if index > length || < 0, return null
+___ Loop through the list until you get to that index, return the node at that index
+
 */
 
 class SinglyLinkedList {
@@ -151,7 +159,7 @@ class SinglyLinkedList {
     if (!this.length){
       this.head = newNode;
       this.tail = this.head;
-      
+
     } else {
       let oldHead = this.head;
       this.head = newNode;
@@ -161,6 +169,20 @@ class SinglyLinkedList {
     this.length++;
 
     return newNode;
+  }
+
+  get(index){
+    if (index > this.length || index < 0 || index === undefined) return null;
+
+    let count = 0;
+    let node = this.head;
+
+    while (count < index){
+      node = node.next;
+      count++;
+    }
+
+    return node;
   }
 } 
 
