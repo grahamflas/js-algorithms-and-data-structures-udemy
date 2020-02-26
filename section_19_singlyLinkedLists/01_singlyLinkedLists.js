@@ -34,6 +34,13 @@ class Node {
   }
 }
 
+//Helper function to create a SLL from a collection of nodes (string or array)
+function addToSLL(SSL, nodeList){
+  for (let i=0; i<nodeList.length; i++){
+    SSL.push(nodeList[i])
+  }
+}
+
 /*
 _____ Singly Linked List and methods _____ 
 
@@ -103,12 +110,9 @@ class SinglyLinkedList {
  }
 } 
 
-var nodes = "abcdefg"
-function addToSLL(SSL, nodeList){
-  for (let i=0; i<nodeList.length; i++){
-    SSL.push(nodeList.charAt(i))
-  }
-}
+//List to play with
+let testList = new SinglyLinkedList;
+
 
 // let firstNode = new Node("Hi")
 // firstNode.next = new Node("there")
