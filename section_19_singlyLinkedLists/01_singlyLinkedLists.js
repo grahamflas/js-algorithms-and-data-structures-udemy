@@ -122,9 +122,8 @@ class SinglyLinkedList {
   if (!this.length) return undefined;
 
   let oldHead = this.head;
-  let newHead = oldHead.next;
 
-  this.head = newHead;
+  this.head = oldHead.next;
   this.length--;
 
   return oldHead;
