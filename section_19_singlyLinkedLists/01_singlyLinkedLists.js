@@ -71,6 +71,17 @@ ___ Store the current head property in a variable
 ___ Set the head to be the current head's `next` property
 ___ Decrement length
 ___ return the value removed
+
+====================
+PSEUDO CODE for .unshift()
+====================
+___ accept 1 argument: a new Node
+___ create new Node and store in a variable `newNode`
+___ if no nodes, set head and tail to newNode
+___ Otherwise, store current head in a variable `oldHead`
+___ set head to newNode and head.next to `oldHead`
+___ increment length
+___ return newNode
 */
 
 class SinglyLinkedList {
@@ -95,7 +106,7 @@ class SinglyLinkedList {
     return newNode;
   }
 
- pop(){
+  pop(){
   if (!this.length) return undefined; 
 
   let current = this.head;
@@ -116,23 +127,41 @@ class SinglyLinkedList {
   }
 
   return current;
- }
-
- shift(){
-  if (!this.length) return undefined;
-
-  let oldHead = this.head;
-
-  this.head = oldHead.next;
-  this.length--;
-
-  if(this.length===0){
-    this.head = null;
-    this.tail = null;
   }
-  
-  return oldHead;
- }
+
+  shift(){
+    if (!this.length) return undefined;
+
+    let oldHead = this.head;
+
+    this.head = oldHead.next;
+    this.length--;
+
+    if(this.length===0){
+      this.head = null;
+      this.tail = null;
+    }
+
+    return oldHead;
+  }
+
+  unshift(val){
+    let newNode = new Node(val);
+
+    if (!this.length){
+      this.head = newNode;
+      this.tail = this.head;
+      
+    } else {
+      let oldHead = this.head;
+      this.head = newNode;
+      this.head.next = oldHead;
+    }
+
+    this.length++;
+
+    return newNode;
+  }
 } 
 
 //List to play with
