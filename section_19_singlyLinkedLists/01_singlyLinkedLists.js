@@ -71,8 +71,8 @@ class SinglyLinkedList {
       this.head = newNode;
       this.tail = newNode;
     } else {
-      this.tail.next = newNode;
-      this.tail = newNode;
+      this.tail.next = newNode; //set the .next property on the current tail to the node you're creating
+      this.tail = newNode; //reset the tail to the new tail 
     }
 
     this.length++;
@@ -81,10 +81,11 @@ class SinglyLinkedList {
 
   pop(){
     if (!this.length) return undefined;
+
     let current = this.head;
     let newTail = current;
 
-    while(current.next){
+    while(current.next){  //Loop while current has a next property that's !== null; this will be your penultimate node
       newTail = current;
       current = current.next;
     }
@@ -98,7 +99,13 @@ class SinglyLinkedList {
     }
     return current
   }
+} 
 
+var nodes = "abcdefg"
+function addToSLL(SSL, nodeList){
+  for (let i=0; i<nodeList.length; i++){
+    SSL.push(nodeList.charAt(i))
+  }
 }
 
 // let firstNode = new Node("Hi")
