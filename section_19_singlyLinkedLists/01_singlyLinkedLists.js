@@ -106,9 +106,22 @@ ___ if index < 0 or index > this.length => undefined
 ___ if index === length - 1 => remove the last item (pop)
 ___ if index is 0 => remove the head (shift)
 ___ otherwise access the node at the given index-1 (.get())
-  ___ set the `next` property of that node to be the `next` of the next node
+___ set the `next` property of that node to be the `next` of the next node
 ___ decrement length
 ___ return the removed node
+
+====================
+PSEUDO CODE for .reverse()
+====================
+___ swap the head and the tail
+___ create a var `next`
+___ create a var `prev`
+___ create a var `node` initialized to head
+___ loop through the list
+___ set `next` to be `.next` of whatever `node` is
+___ set `.next` of node to be whatever `prev` is
+___ set `prev` to be the value of `node`
+___ set `node` to be the value of the `next` variable 
 
 
 */
@@ -226,6 +239,26 @@ class SinglyLinkedList {
     this.length--;
 
     return toDelete;
+  }
+
+  reverse(){
+    let currentHead = this.head;
+    let currentTail = this.tail;
+    this.head = currentTail;
+    this.tail = currentHead;
+
+    let node = currentHead;
+    let next = null;
+    let prev = null;
+    let count = 0
+
+    while (count < this.length){
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+      count++;
+    }
   }
 } 
 
