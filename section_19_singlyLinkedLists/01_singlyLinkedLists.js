@@ -98,6 +98,19 @@ ___ find specific node using .get()
 ___ If node is not found, return false
 ___ if the node is found, set the value of that node the value provided and return true
 
+====================
+PSEUDO CODE for .remove()
+====================
+___ function that accepts an index
+___ if index < 0 or index > this.length => undefined
+___ if index === length - 1 => remove the last item (pop)
+___ if index is 0 => remove the head (shift)
+___ otherwise access the node at the given index-1 (.get())
+  ___ set the `next` property of that node to be the `next` of the next node
+___ decrement length
+___ return the removed node
+
+
 */
 
 class SinglyLinkedList {
@@ -199,6 +212,20 @@ class SinglyLinkedList {
 
     let bool = node ? true : false;
     return bool;
+  }
+
+  remove(index){
+    if (index < 0 || index > this.length - 1) return undefined;
+    if (index === this.length-1) return this.pop();
+    if (index === 0) return this.shift();
+
+    let toDelete = this.get(index);
+    let prev = this.get(index-1);
+
+    prev.next = toDelete.next;
+    this.length--;
+
+    return toDelete;
   }
 } 
 
