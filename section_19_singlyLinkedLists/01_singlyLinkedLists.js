@@ -242,23 +242,19 @@ class SinglyLinkedList {
   }
 
   reverse(){
-    let currentHead = this.head;
-    let currentTail = this.tail;
-    this.head = currentTail;
-    this.tail = currentHead;
+   let node = this.head;
+   this.head = this.tail;
+   this.tail = node;
 
-    let node = currentHead;
-    let next = null;
-    let prev = null;
-    let count = 0
+   let next; 
+   let prev = null; 
 
-    while (count < this.length){
-      next = node.next;
-      node.next = prev;
-      prev = node;
-      node = next;
-      count++;
-    }
+   for (let i=0; i<this.length; i++){
+     next = node.next;
+     node.next = prev;
+     prev = node;
+     node = next;
+   }
   }
 } 
 
