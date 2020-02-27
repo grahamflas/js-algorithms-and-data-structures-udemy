@@ -90,6 +90,14 @@ ___ function that accepts an index
 ___ if index > length || < 0, return null
 ___ Loop through the list until you get to that index, return the node at that index
 
+====================
+PSEUDO CODE for .set()
+====================
+___ function that accepts an index and value
+___ find specific node using .get()
+___ If node is not found, return false
+___ if the node is found, set the value of that node the value provided and return true
+
 */
 
 class SinglyLinkedList {
@@ -183,6 +191,14 @@ class SinglyLinkedList {
     }
 
     return node;
+  }
+
+  set(index, val){
+    let node = this.get(index)
+    if (node) node.val = val;
+
+    let bool = node ? true : false;
+    return bool;
   }
 } 
 
